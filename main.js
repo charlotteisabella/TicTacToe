@@ -11,6 +11,19 @@ var movesArray = [
 ]
 
 
+
+// var computerMove = function(){
+// if (currentPlayer === "Player2") {
+
+//   for (i=0; i<=2; i++) {
+//    if (movesArray[0][i]!== "_"){
+//     movesArray[0][i] = "Player2";
+//    }
+//   }
+// } 
+// }
+
+
 var changePlayer = function () {
   console.log("Current Letter is: " + currentPlayer);
   if ( currentPlayer === "Player1" ) {
@@ -22,6 +35,7 @@ var changePlayer = function () {
 }
 
 $("body").on("click", ".box", changePlayer);
+
 
 
 $("body").on("click", ".box", function () {
@@ -71,10 +85,10 @@ function checkIfWonVertical(){
       sweetAlert({
         title: currentPlayer + " wins!",
         text: "Play again?",
-        showConfirmButton: true,
-        confirmButtonText: "sure!",
+        confirmButtonText: "Sure thing!",
+        confirmButtonColor: "#9DB997",
         showCancelButton: true,
-        cancelButtonText: "no, thanks",
+        cancelButtonText: "I'm done",
       },
       function(){
         location.reload(); 
@@ -101,10 +115,10 @@ function checkIfWonHorizontal(){
       sweetAlert({
         title: currentPlayer + " wins!",
         text: "Play again?",
-        showConfirmButton: true,
-        confirmButtonText: "sure!",
+        confirmButtonText: "Sure thing!",
+        confirmButtonColor: "#9DB997",
         showCancelButton: true,
-        cancelButtonText: "no, thanks"
+        cancelButtonText: "I'm done"
       },
       function(){
         location.reload(); 
@@ -127,10 +141,10 @@ function checkIfWonDiagonal() {
     sweetAlert({
       title: currentPlayer + " wins!",
       text: "Play again?",
-      showConfirmButton: true,
-      confirmButtonText: "sure!",
+      confirmButtonText: "Sure thing!",
+      confirmButtonColor: "#9DB997",
       showCancelButton: true,
-      cancelButtonText: "no, thanks"
+      cancelButtonText: "I'm done"
     },
     function(){
         location.reload(); 
@@ -152,10 +166,10 @@ function draw() {
     sweetAlert({
       title: "Draw!",
       text: "Play again?",
-      showConfirmButton: true,
-      confirmButtonText: "sure!",
+      confirmButtonText: "Sure thing!",
+      confirmButtonColor: "#9DB997",
       showCancelButton: true,
-      cancelButtonText: "no, thanks"
+      cancelButtonText: "I'm done"
     },
     function(){
         location.reload(); 
@@ -163,6 +177,17 @@ function draw() {
     );
   }
 }
+
+
+function giveInstructions () {
+  sweetAlert({
+  title: "Instructions",
+  text: "The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either oppent has three in a row or all nine squares are filled.",
+  confirmButtonColor: "#9DB997"
+  });
+}
+
+$("body").on("click", ".help", giveInstructions);
 
 
 
