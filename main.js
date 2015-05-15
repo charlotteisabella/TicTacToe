@@ -12,10 +12,13 @@ var movesArray = [
 
 //this function changes the player after each turn
 var changePlayer = function () {
-  if ( currentPlayer === "Player1" ) {
-    currentPlayer = "Player2";
-  } else {
-    currentPlayer = "Player1";
+  if ( !$(this).hasClass("selected") ) {
+
+    if ( currentPlayer === "Player1" ) {
+      currentPlayer = "Player2";
+    } else {
+      currentPlayer = "Player1";
+    }
   }
 
 }
@@ -26,26 +29,28 @@ $("body").on("click", ".box", changePlayer);
 
 //registers which box was clicked and pushes that informatin into the moves array
 $("body").on("click", ".box", function () {
+  if ( !$(this).hasClass("selected") ) {
+    $(this).addClass("selected");
+    // Store the row value in a variable
 
-  // Store the row value in a variable
+    var row = $(this).attr("data-row");
 
-  var row = $(this).attr("data-row");
+    // Store the column value in a variable
 
-  // Store the column value in a variable
+    var column = $(this).attr("data-column");
 
-  var column = $(this).attr("data-column");
-
-  // Go into the moves array
-movesArray[row][column] = currentPlayer;
+    // Go into the moves array
+    movesArray[row][column] = currentPlayer;
 
 
-//gives the box the css class specific to that player so that the box changes
-  $(this).addClass(currentPlayer);
+    //gives the box the css class specific to that player so that the box changes
+    $(this).addClass(currentPlayer);
 
-  checkIfWonVertical();
-  checkIfWonHorizontal();
-  checkIfWonDiagonal();
-  draw();
+    checkIfWonVertical();
+    checkIfWonHorizontal();
+    checkIfWonDiagonal();
+    draw();
+  }
 
 });
 
