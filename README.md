@@ -5,6 +5,9 @@ Game of noughts and crosses created using JavaScript and jQuery. Also utilises t
 t4t5 on GitHub, however adjustments have been made in the SweetAlert css and Javascript to adjust styling to suit the
 application.
 
+Bugs:
+- If a square is clicked a second time it changes to become the new player's move
+
 Would love to add: 
 - a feature for making the computer play the game
 - a counter for the number of games played
