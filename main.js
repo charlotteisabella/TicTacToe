@@ -1,31 +1,17 @@
-// What are the things I need to keep track of?
 
-// We need whether it is X or 0 at the moment
-// Where they have clicked
-
+//Player starts on player 2 because is changes before the first move
 var currentPlayer = "Player2";
+
+
+//Whenever someone makes a move it will be recorded in the moves array
 var movesArray = [
   [ "_", "_", "_" ],
   [ "_", "_", "_" ],
   [ "_", "_", "_" ]
 ]
 
-
-
-// var computerMove = function(){
-// if (currentPlayer === "Player2") {
-
-//   for (i=0; i<=2; i++) {
-//    if (movesArray[0][i]!== "_"){
-//     movesArray[0][i] = "Player2";
-//    }
-//   }
-// } 
-// }
-
-
+//this function changes the player after each turn
 var changePlayer = function () {
-  console.log("Current Letter is: " + currentPlayer);
   if ( currentPlayer === "Player1" ) {
     currentPlayer = "Player2";
   } else {
@@ -34,10 +20,11 @@ var changePlayer = function () {
 
 }
 
+//calls the function to change the player when a square is clicked
 $("body").on("click", ".box", changePlayer);
 
 
-
+//registers which box was clicked and pushes that informatin into the moves array
 $("body").on("click", ".box", function () {
 
   // Store the row value in a variable
@@ -48,19 +35,13 @@ $("body").on("click", ".box", function () {
 
   var column = $(this).attr("data-column");
 
-  console.log( "Row: " + row );
-  console.log( "Column: " + column );
-
   // Go into the moves array
 movesArray[row][column] = currentPlayer;
 
 
-    // Using the row value, access the current array in the main array
-    // Using the column value, access the actual element in that array
-    // Change the value of that to be equal to the current move
-
+//gives the box the css class specific to that player so that the box changes
   $(this).addClass(currentPlayer);
-  // debugger;
+
   checkIfWonVertical();
   checkIfWonHorizontal();
   checkIfWonDiagonal();
@@ -81,7 +62,6 @@ function checkIfWonVertical(){
        ){
 
         // function for telling the winner that they won
-      console.log("the winner is " + currentPlayer);
       sweetAlert({
         title: currentPlayer + " wins!",
         text: "Play again?",
@@ -111,7 +91,6 @@ function checkIfWonHorizontal(){
        ){
 
         // function for telling the winner that they won
-      console.log("the winner is " + currentPlayer);
       sweetAlert({
         title: currentPlayer + " wins!",
         text: "Play again?",
@@ -137,7 +116,7 @@ function checkIfWonDiagonal() {
 
   if ( diagonalOne || diagonalTwo ) {
 
-    console.log("the winner is " + currentPlayer);
+  // function for telling the winner that they won
     sweetAlert({
       title: currentPlayer + " wins!",
       text: "Play again?",
@@ -159,9 +138,7 @@ function draw() {
   var anyUnderscores = flattenedArray.indexOf("_") >= 0;
   var anyWins = checkIfWonDiagonal() || checkIfWonHorizontal() || checkIfWonVertical();
 
-  console.log("Underscores? " + anyUnderscores);
-  console.log("No Wins? " + !anyWins);
-
+  //Function for alerting a draw
   if ( !anyUnderscores && !anyWins ) {
     sweetAlert({
       title: "Draw!",
@@ -179,6 +156,7 @@ function draw() {
 }
 
 
+//when someone clicks on 'help' instructions appear
 function giveInstructions () {
   sweetAlert({
   title: "Instructions",
@@ -195,7 +173,18 @@ $("body").on("click", ".help", giveInstructions);
 
 
 
+// WORK IN PROGRESS
 
+// var computerMove = function(){
+// if (currentPlayer === "Player2") {
+
+//   for (i=0; i<=2; i++) {
+//    if (movesArray[0][i]!== "_"){
+//     movesArray[0][i] = "Player2";
+//    }
+//   }
+// } 
+// }
 
 
 

@@ -11,6 +11,13 @@
   font-style: normal;
 }
 
+body {
+  background-image: url("testimg.jpg");
+  background-color: #2F323A;
+}
+
+/******************** FONTS ***************************/
+
 h1 {
   text-align: center;
   font-size: 35px;
@@ -21,10 +28,6 @@ h1 {
   letter-spacing: 2.5px;
 }
 
-body {
-  background-image: url("testimg.jpg");
-  background-color: #2F323A;
-}
 
 p {
   position: fixed;
@@ -33,6 +36,9 @@ p {
   font-family: "Montserrat", sans-serif;
   color: #fff;
 }
+
+/******************** SOCIAL MEDIA BUTTONS ***************************/
+
 
 .social{
   width: 30px;
@@ -60,6 +66,9 @@ p {
   left: 51.5%;
 }
 
+/******************** FOOTER ***************************/
+
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -68,6 +77,8 @@ p {
   width: 100%;
   height: 50px;
 }
+
+/******************** GAME ***************************/
 
 
 #board {
