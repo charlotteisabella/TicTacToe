@@ -108,3 +108,77 @@ p {
   background-color: #FC8E9B;
 }
 
+
+/******************** RESPONSIVE ***************************/
+/******************** WORK IN PROGRESS ********************/
+
+
+@media (max-width: 500px){
+
+  #board {
+    height: 450px;
+    width: 450px;
+    margin: 65px auto;
+
+  }
+
+  .box {
+  width: 146px;
+  height: 146px;
+  margin: 2px;
+  
+  }
+
+  .pinterest{
+   left: 5%;
+  }
+
+  .tumblr{
+    left: 35%;
+  }
+
+  .twitter{
+    left: 15%;
+  }
+
+  .linkedin{
+    left: 25%;
+  }
+
+}
+
+
+/*
+@media (max-width: 460px){
+  #board {
+  height: 400px;
+  width: 400px;
+  margin: 45px auto;
+
+  }
+
+  .box {
+  width: 131px;
+  height: 131px;
+  margin: 1px;
+  
+  }
+} */
+
+@media (max-width: 460px) {
+  #board {
+  height: 246px;
+  width: 246px;
+  margin: 25px auto;
+
+  }
+
+  .box {
+  width: 80px;
+  height: 80px;
+  margin: 1px;
+  
+  } 
+}
+
+
