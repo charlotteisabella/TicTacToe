@@ -181,4 +181,20 @@ p {
   } 
 }
 
+@media (max-width: 300px) {
+  #board {
+  height: 276px;
+  width: 246px;
+  margin: 25px auto;
+
+  }
+
+  .box {
+  width: 90px;
+  height: 90px;
+  margin: 1px;
+  
+  } 
+}
+
 
